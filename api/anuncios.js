@@ -1,14 +1,26 @@
 var express = require('express');
 var router = express.Router();
+const Ad = require('./../models/anuncio');
 
-const adModel = require('./../models/anuncio');
-
-/* GET users listing. */
+//Petición GET:
 router.get('/', async (req, res, next) => {
     try{
-        //Aqui podríamos poner logica de filtros.
-        const docs = await adModel.lista();
-        console.log(docs);
+        //El filtro debe ser un objeto
+        const filtro = {};
+        filtro.name = 'Rueda';
+        filtro.sell = undefined;
+        filtro.price = undefined;
+        filtro.image =  undefined; 
+        filtro.tags = undefined;
+        //filtro listo, vamos con lo demas.
+        console.log(filtro)
+        const sort = 'name';
+        const skip = 0;
+        const limit = 1000;
+        const fields = 'name sell price image tags';
+        //Hago la primera query para que me lo traiga todo.
+        const response = await Ad.lista(filtro, sort, skip, limit, fields);
+        const docs = response;
         res.json(docs);
     }
     catch(err){

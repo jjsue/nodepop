@@ -13,17 +13,18 @@ const adSchema = mongoose.Schema({
     message: mongoose.Schema.Types.Mixed, // para datos sin schema //Esto hay que revisarlo.
 });
 
-adSchema.statics.lista = function(filtro, limit, skip, sort, fields) {
-    const query = ad.find(filtro);
-    query.limit(limit);
-    query.skip(skip);
-    query.sort(sort);
-    query.select(fields);
+adSchema.statics.lista = function (filter, sort, skip, limit, fields) {
+    var query = Ad.find(filter); //Explicacion: https://mongoosejs.com/docs/api.html#model_Model.find
+    query.sort(sort); //Ordenar resultados por....
+    query.skip(skip); // Saltarse x resultados
+    query.limit(limit); //Limite
+    query.select(fields); //Campos devueltos
     return query.exec();
-};
+}
+
 
 //Se crea el modelo con el esquema.
-const ad = mongoose.model('ad', adSchema);
+const Ad = mongoose.model('ad', adSchema);
 
 //Exportado del modelo:
-module.exports = ad;
+module.exports = Ad;
