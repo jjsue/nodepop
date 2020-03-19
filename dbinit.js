@@ -21,5 +21,6 @@ async function initAdDb() {
     { name: 'Patinete electrico', sell: false, price: 100, image: 'http://www.clker.com/cliparts/4/4/4/T/k/W/no-camera-allowed-hi.png', tags: ['motor']},
     { name: 'Telefono fijo', sell: true, price: 104, image: 'http://www.clker.com/cliparts/4/4/4/T/k/W/no-camera-allowed-hi.png', tags: ['work']},
     { name: 'Rueda de coche', sell: true, price: 299, image: 'http://www.clker.com/cliparts/4/4/4/T/k/W/no-camera-allowed-hi.png', tags: ['lifestyle']},
+    { name: 'Telefono', sell: true, price: 299, image: 'http://www.clker.com/cliparts/4/4/4/T/k/W/no-camera-allowed-hi.png', tags: ['lifestyle']},
   ]);
 }

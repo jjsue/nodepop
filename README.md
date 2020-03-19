@@ -24,10 +24,10 @@ url/anuncios?name=rueda&sell=true
 
 Los posibles filtros que tenemos son:
 * name: Para buscar por el nombre del articulo
-* tag: Para buscar por tag
+* tag: Para buscar por tag, deben estar jutnos y separados por comas. Pe: lifestyle,work
 * sell: True para anuncios de venta, false para anuncios de compra.
 * pricemax: Precio maximo
-* pricemix: Precio minimo
+* pricemin: Precio minimo
 * orderby: Elige como quieres recibir el orden de los resultos.
     * name: Ordena por nombre
     * price: Ordena por precio
@@ -37,4 +37,4 @@ El orden de uso de los filtros o el mismo uso de estos es totalmente opcional, s
 Hay dos filtros adicionales de paginación:
 
 * skip: para saltarse x numero de resultados.
-* limit: limitar resultados.
+* limit: limitar resultados. Por defecto es 100
