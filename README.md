@@ -28,7 +28,7 @@ Los posibles filtros que tenemos son:
 * sell: True para anuncios de venta, false para anuncios de compra.
 * pricemax: Precio maximo
 * pricemin: Precio minimo
-* orderby: Elige como quieres recibir el orden de los resultos.
+* orderby: Elige como quieres recibir el orden de los resultados. Por defecto usa el nombre.
     * name: Ordena por nombre
     * price: Ordena por precio
 
