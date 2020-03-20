@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
+//modelo
 const Ad = require('./../models/anuncio');
-
+//Validador
+const { check, validationResult } = require('express-validator');
 //Petición GET:
 router.get('/', async (req, res, next) => {
     try {
@@ -54,14 +56,32 @@ router.get('/', async (req, res, next) => {
 });
 
 //Siguiente middleware, el de crear anuncios.
-router.post('/', async (req, res, next) => {
-    try {
-        const dataPost = req.body;
-        res.status(201).json({dataPost});
-    }
-    catch{
-        next(err);
-    }
-});
+router.post('/',
+    [
+        check('name').isString(),
+        check('sell').isBoolean(),
+        check('price').isNumeric(),
+        check('image').isURL(),
+        check('tags').isArray(),
+    ],
+    async (req, res, next) => {
+        try {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                return res.status(422).json({ errors: errors.array() }); //Respuesta si fallan las validaciones.
+            }
+            const postData = req.body; //Tomamos la respuesta
+            //Creamos en memoria:
+            const postDataToSave = new Ad(postData);
+            //Guardado en DB:
+            const postDataSaved = postDataToSave.save()
+            //Respuesta si todo va bien.
+            res.status(201).json({ result: postDataSaved });
+
+        }
+        catch (err) {
+            next(err);
+        }
+    });
 
 module.exports = router;
