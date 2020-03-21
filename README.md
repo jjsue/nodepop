@@ -49,3 +49,5 @@ Tendremos que enviar la información en formato JSON. Tenemos que escribir todos
 * price: Precio del articulo.
 * image: url de la imagen del anuncio.
 * tags: [array, de, strings]
+
+### Saber la lista de tags disponibles para nuestro anuncio:
