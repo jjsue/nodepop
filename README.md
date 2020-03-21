@@ -51,3 +51,28 @@ Tendremos que enviar la información en formato JSON. Tenemos que escribir todos
 * tags: [array, de, strings]
 
 ### Saber la lista de tags disponibles para nuestro anuncio:
+
+Tenemos que hacer algo tan sencillo como una llamada get al endpoint /tags
+
+Una vez realizada esta llamada la respuesta será tal que así:
+
+```
+[
+    {
+        "_id": "5e75fbd7250c623424b9454b",
+        "tag": "lifestyle"
+    },
+    {
+        "_id": "5e75fbd7250c623424b9454e",
+        "tag": "mobile"
+    },
+    {
+        "_id": "5e75fbd7250c623424b9454d",
+        "tag": "motor"
+    },
+    {
+        "_id": "5e75fbd7250c623424b9454c",
+        "tag": "work"
+    }
+]
+```

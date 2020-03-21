@@ -10,7 +10,7 @@ const tagSchema = mongoose.Schema({
 });
 
 tagSchema.statics.lista = function (filter, sort, skip, limit, fields) {
-    var query = Ad.find(filter); //Explicacion: https://mongoosejs.com/docs/api.html#model_Model.find
+    var query = Tag.find(filter); //Explicacion: https://mongoosejs.com/docs/api.html#model_Model.find
     query.sort(sort); //Ordenar resultados por....
     query.skip(skip); // Saltarse x resultados
     query.limit(limit); //Limite
