@@ -76,7 +76,25 @@ Una vez realizada esta llamada la respuesta será tal que así:
     }
 ]
 ```
-
+#### Respuesta correcta:
+Recibiremos de vuelta un status 201 con un JSON de lo que se ha escrito exactamente en la base de datos:
+    ```
+    {
+        "result": {
+            "tags": [
+                "lifestyle",
+                "work",
+                "motor"
+            ],
+            "_id": "5e7746cd957e102d30cc7dc6",
+            "name": "Patinete",
+            "sell": false,
+            "price": 25,
+            "image": "https://github.com/jjsue/nodepop",
+            "__v": 0
+        }
+    }
+    ```
 #### Errores:
 Si no nos ceñimos a lo esperado por nodepop obtendremos los siguientes errores:
 * Tags:
