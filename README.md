@@ -76,3 +76,101 @@ Una vez realizada esta llamada la respuesta será tal que así:
     }
 ]
 ```
+
+#### Errores:
+Si no nos ceñimos a lo esperado por nodepop obtendremos los siguientes errores:
+* Tags:
+    ```
+    {
+        "errors": "Error, tags are not corresponding with the expected ones"
+    }
+    ```
+* Tags no array:
+    ```
+    {
+        "errors": [
+            {
+                "value": "lifestyle",
+                "msg": "Invalid value",
+                "param": "tags",
+                "location": "body"
+            }
+        ]
+    }
+    ```
+* name:
+    ```
+    {
+        "errors": [
+            {
+                "msg": "Invalid value",
+                "param": "name",
+                "location": "body"
+            }
+        ]
+    }
+    ```
+* sell:
+    ```
+    {
+        "errors": [
+            {
+                "value": "nobol",
+                "msg": "Invalid value",
+                "param": "sell",
+                "location": "body"
+            }
+        ]
+    }
+    ```
+* price:
+    ```
+    {
+        "errors": [
+            {
+                "value": "nobol",
+                "msg": "Invalid value",
+                "param": "sell",
+                "location": "body"
+            }
+        ]
+    }
+    ```
+* image:
+    ```
+    {
+        "errors": [
+            {
+                "value": "must be an url",
+                "msg": "Invalid value",
+                "param": "image",
+                "location": "body"
+            }
+        ]
+    }
+    ```
+* Varios errores encadenados:
+    ```
+    {
+        "errors": [
+            {
+                "value": "false o algo asi",
+                "msg": "Invalid value",
+                "param": "sell",
+                "location": "body"
+            },
+            {
+                "value": "veinticingo",
+                "msg": "Invalid value",
+                "param": "price",
+                "location": "body"
+            },
+            {
+                "value": "must be an url",
+                "msg": "Invalid value",
+                "param": "image",
+                "location": "body"
+            }
+        ]
+    }
+    ```

@@ -2,8 +2,6 @@ var express = require('express');
 var router = express.Router();
 //modelo
 const Tag = require('./../models/tag');
-//Validador
-const { check, validationResult } = require('express-validator');
 //Petición GET:
 router.get('/', async (req, res, next) => {
     try {

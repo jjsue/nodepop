@@ -1,9 +1,11 @@
 var express = require('express');
 var router = express.Router();
-//modelo
+//modelos
 const Ad = require('./../models/anuncio');
+const Tag = require('./../models/tag');
 //Validador
 const { check, validationResult } = require('express-validator');
+const tagValidator = require('./../lib/tagValidator');
 //Petición GET:
 router.get('/', async (req, res, next) => {
     try {
@@ -70,12 +72,27 @@ router.post('/',
             if (!errors.isEmpty()) {
                 return res.status(422).json({ errors: errors.array() }); //Respuesta si fallan las validaciones.
             }
+            //Tomo de la base de datos la lista de tags:
+            const filtro = {};
+            const sort = 'tag';
+            const skip = 0;
+            const limit = 10000;
+            const fields = 'tag';
+            const tagList = await Tag.lista(filtro, sort, skip, limit, fields);
+            let databaseTagList = [];
+            for (i = 0; i < tagList.length; i++) {
+                databaseTagList[i] = tagList[i].tag;
+            }
+            if (!tagValidator(req.body.tags, databaseTagList)) {
+                return res.status(422).json({ errors: 'Error, tags are not corresponding with the expected ones' });
+            }
             //Validacion de si el array es correcto según nuestra base de datos de tags.
+
             const postData = req.body; //Tomamos la respuesta
             //Creamos en memoria:
             const postDataToSave = new Ad(postData);
             //Guardado en DB:
-            const postDataSaved = postDataToSave.save()
+            const postDataSaved = await postDataToSave.save()
             //Respuesta si todo va bien.
             res.status(201).json({ result: postDataSaved });
 
