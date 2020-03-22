@@ -11,7 +11,7 @@ router.get('/', async (req, res, next) => {
         const sort = 'tag';
         const skip = 0;
         const limit = 10000;
-        const fields = 'tag'
+        const fields = 'tag';
         // Respuesta:
         const response = await Tag.lista(filtro, sort, skip, limit, fields);
         const docs = response;

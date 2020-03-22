@@ -70,6 +70,7 @@ router.post('/',
             if (!errors.isEmpty()) {
                 return res.status(422).json({ errors: errors.array() }); //Respuesta si fallan las validaciones.
             }
+            //Validacion de si el array es correcto según nuestra base de datos de tags.
             const postData = req.body; //Tomamos la respuesta
             //Creamos en memoria:
             const postDataToSave = new Ad(postData);
