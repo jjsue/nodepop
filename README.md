@@ -20,6 +20,7 @@ url/anuncios?name=rueda
 ```
 
 Tambien podemos encadenar todos los tags posibles mediante el símbolo "&". Ejemplo:
+
 ```
 url/anuncios?name=rueda&sell=true
 ```

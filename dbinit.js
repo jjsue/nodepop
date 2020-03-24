@@ -19,11 +19,11 @@ conn.once('open', async () => {
 async function initAdDb() {
   await anuncio.deleteMany();
   await anuncio.insertMany([
-    { name: 'Botas de futbol', sell: true, price: 10, image: 'http://www.clker.com/cliparts/4/4/4/T/k/W/no-camera-allowed-hi.png', tags: ['lifestyle', 'work'] },
-    { name: 'Patinete electrico', sell: false, price: 100, image: 'http://www.clker.com/cliparts/4/4/4/T/k/W/no-camera-allowed-hi.png', tags: ['motor'] },
-    { name: 'Telefono fijo', sell: true, price: 104, image: 'http://www.clker.com/cliparts/4/4/4/T/k/W/no-camera-allowed-hi.png', tags: ['work'] },
-    { name: 'Rueda de coche', sell: true, price: 299, image: 'http://www.clker.com/cliparts/4/4/4/T/k/W/no-camera-allowed-hi.png', tags: ['lifestyle'] },
-    { name: 'Telefono', sell: true, price: 299, image: 'http://www.clker.com/cliparts/4/4/4/T/k/W/no-camera-allowed-hi.png', tags: ['lifestyle'] },
+    { name: 'Botas de futbol', sell: true, price: 10, image: 'https://github.com/jjsue/nodepop', tags: ['lifestyle', 'work'] },
+    { name: 'Patinete electrico', sell: false, price: 100, image: 'https://github.com/jjsue/nodepop', tags: ['motor'] },
+    { name: 'Telefono fijo', sell: true, price: 104, image: 'https://github.com/jjsue/nodepop', tags: ['work'] },
+    { name: 'Rueda de coche', sell: true, price: 299, image: 'https://github.com/jjsue/nodepop', tags: ['lifestyle'] },
+    { name: 'Telefono', sell: true, price: 299, image: 'https://github.com/jjsue/nodepop', tags: ['lifestyle'] },
   ]);
 }
 
