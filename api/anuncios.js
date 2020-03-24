@@ -19,25 +19,20 @@ router.get('/', async (req, res, next) => {
         //Filtros puros
         if (req.query.name !== undefined) { //Filtro por nombre
             filtro.name = new RegExp(req.query.name, "gi"); //Esta es la RegExp que me permite que funciuonen las busquedas parciales. Busqueda global + mayus minus
-            console.log(filtro);
         }
         if (req.query.sell !== undefined) { //Filtro para compra o venta
             filtro.sell = req.query.sell;
         }
         if (req.query.pricemax !== undefined || req.query.pricemin !== undefined) { //Precio maximo o minimo
-            console.log("Pricemax o pricemin");
             if (req.query.pricemax !== undefined && req.query.pricemin) { //Ambos dos
                 filtro.price = { $gte: parseInt(req.query.pricemin), $lte: parseInt(req.query.pricemax) }
-                console.log(filtro);
             }
         }
         if (req.query.tag !== undefined) {
             filtro.tags = req.query.tag.split(','); //El .split separa por comas y guarda en Array. Si un anuncio tiene 2 tags no encuentra uno individual o desordenado tampoco.
-            console.log(filtro.tags);
         }
         //Aqui vamos a meter el orderby:
         if (req.query.orderby !== undefined && (req.query.orderby === 'name' || req.query.orderby === 'price')) { //Controlamos que solo se puede ordenar por precio.
-            console.log("Orderby");
             sort = req.query.orderby;
         }
         //skip y limit:

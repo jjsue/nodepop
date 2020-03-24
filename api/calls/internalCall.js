@@ -2,10 +2,10 @@
 
 const axios = require('axios').default;
 
-async function adCall() {
+async function adCall(queryParams) {
     return axios({
         method: 'GET',
-        url: `http://127.0.0.1:3000/anuncios`,
+        url: `http://127.0.0.1:3000/anuncios${queryParams}`,
     })
         .then(function (response) {
             //console.log(response.data);
