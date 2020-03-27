@@ -9,24 +9,23 @@ Están preparados para funcionar en entornos multiplataforma, se puede trabajar 
 
 Arrancar la app en entorno de producción.
 
-´´´
+```
 npm run start
-´´´
+```
 ### Run dev
 
 Arranca la app en entorno de desarollo, puerto 3000. Se ejecuta con nodemon para que los cambios sean cargados al instante.
 
-´´´
+```
 npm run dev
-´´´
+```
 
 ### Run devbug
 
 Para usar el debugger.
-
-´´´
+```
 npm run devbug
-´´´
+```
 ## ¿Como arrancar la base de datos?
 
 Simplemente hay que ejecutar el archivo dbinit.js.
