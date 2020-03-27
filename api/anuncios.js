@@ -29,7 +29,8 @@ router.get('/', async (req, res, next) => {
             }
         }
         if (req.query.tag !== undefined) {
-            filtro.tags = req.query.tag.split(','); //El .split separa por comas y guarda en Array. Si un anuncio tiene 2 tags no encuentra uno individual o desordenado tampoco.
+            console.log(req.query.tag);
+            filtro.tags = { "$in": req.query.tag}; //De esta forma vamos a buscar todos los anuncios que tengan alguno de los tags especificados.
         }
         //Aqui vamos a meter el orderby:
         if (req.query.orderby !== undefined && (req.query.orderby === 'name' || req.query.orderby === 'price')) { //Controlamos que solo se puede ordenar por precio.

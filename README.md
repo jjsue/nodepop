@@ -1,6 +1,34 @@
 # Nodepop
 Proyecto full stack web development Keepcoding.
+
+## Scripts NPM
+
+Están preparados para funcionar en entornos multiplataforma, se puede trabajar indiferentemente en Windows, Mac y Linux.
+
+### Run start
+
+Arrancar la app en entorno de producción.
+
+´´´
+npm run start
+´´´
+### Run dev
+
+Arranca la app en entorno de desarollo, puerto 3000. Se ejecuta con nodemon para que los cambios sean cargados al instante.
+
+´´´
+npm run dev
+´´´
+
+### Run devbug
+
+Para usar el debugger.
+
+´´´
+npm run devbug
+´´´
 ## ¿Como arrancar la base de datos?
+
 Simplemente hay que ejecutar el archivo dbinit.js.
 ```
 node dbinit.js
@@ -42,6 +70,18 @@ Hay dos filtros adicionales de paginación:
 * skip: para saltarse x numero de resultados.
 * limit: limitar resultados. Por defecto es 100
 
+#### Pagina de prueba.
+
+Si realizamos una petición HTTP con cualquier navegador a la raiz de la aplicación obtendremos una tabla con los elementos contenidos en la base de datos.
+
+Además, aquí podemos hacer uso de query params para filtrar, por ejemplo:
+
+```
+    ?name=telefono&tag=work
+```
+
+Eso nos devuelve la lista de anuncios en cuyo nombre esté contenida la palabra telefono y en la que al menos uno de sus tags sea work.
+
 ### Llamada POST, escribir datos.
 
 Tendremos que enviar la información en formato JSON. Tenemos que escribir todos los campos ya que todos son obligatorios:
@@ -77,6 +117,8 @@ Una vez realizada esta llamada la respuesta será tal que así:
     }
 ]
 ```
+Evidentemente de no usar los tags exactamente como nos devuelve esta respuesta recibiremos un mensaje de error (Explicado mas abajo).
+
 #### Respuesta correcta:
 Recibiremos de vuelta un status 201 con un JSON de lo que se ha escrito exactamente en la base de datos:
     ```
