@@ -1,8 +1,6 @@
 var express = require('express');
 var router = express.Router();
-//modelo
 const Tag = require('./../models/tag');
-//Petición GET:
 router.get('/', async (req, res, next) => {
     try {
         const filtro = {};
@@ -10,7 +8,6 @@ router.get('/', async (req, res, next) => {
         const skip = 0;
         const limit = 10000;
         const fields = 'tag';
-        // Respuesta:
         const response = await Tag.lista(filtro, sort, skip, limit, fields);
         const docs = response;
         res.json(docs);

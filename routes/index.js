@@ -1,12 +1,11 @@
 'use strict'
 var express = require('express');
 var router = express.Router();
-const adCall = require('./../api/calls/internalCall'); //Llamada para los anuncios
+const adCall = require('./../api/calls/internalCall');
 
 
 router.get('/', async function (req, res, next) {
   try {
-    //Hay que quitar la / de la req.url, es lo que voy a hacer con el siguiente bucle.
     let queryparams = '';
     for (let i = 1; i < req.url.length; i++){
       queryparams += req.url[i];
@@ -14,7 +13,7 @@ router.get('/', async function (req, res, next) {
     console.log(queryparams);
     const dbData = await adCall(queryparams);
     if (dbData[0] === 'error'){
-      throw(dbData[1]); //Controlando error y dando info sobre el
+      throw(dbData[1]);
     }
     res.render('index', {
       title: 'Muestra de nodepop',

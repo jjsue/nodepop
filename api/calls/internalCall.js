@@ -8,7 +8,6 @@ async function adCall(queryParams) {
         url: `http://127.0.0.1:3000/anuncios${queryParams}`,
     })
         .then(function (response) {
-            //console.log(response.data);
             return response.data;
         })
         .catch(function (error) {
