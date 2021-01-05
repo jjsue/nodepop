@@ -8,7 +8,7 @@
     "devbug": "cross-env PORT=3000 DEBUG=nodepop:* NODE_ENV=development nodemon"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "cookie-parser": "~1.4.4",
     "cross-env": "^7.0.2",
     "debug": "~2.6.9",
